@@ -2,7 +2,7 @@
 <html ng-app="DashPlayer" lang="en">
 <head>
     <meta charset="utf-8"/>
-    <title>Dash JavaScript Player</title>
+    <title>Servicio de Streaming</title>
     <meta name="description" content="" />
     <link rel="icon" type="image/x-icon" href="https://dashif.org/img/favicon.ico" />
     <meta name="viewport" content="width=device-width, height=device-height, user-scalable=no">
@@ -73,6 +73,7 @@
               <span id="big-title">Servicio de Streaming</span>
                 <span ng-bind="version"></span>
                 <span id="commit-info"><!-- commit-info --></span>
+                <p> Dash.js + DRM</p>
             </div>
 
 
@@ -93,7 +94,10 @@
 
 
         <div class="row">
+
             <div class="input-group">
+
+                <!--
                 <div id="desktop-streams" class="input-group-btn">
                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                         Stream <span class="caret"></span>
@@ -119,7 +123,9 @@
                         </li>
                     </ul>
                 </div>
+                -->
 
+                <!--
                 <div id="mobile-streams" class="input-group-btn">
                     <button type="button" class="btn btn-primary" data-toggle="modal" href="#streamModal">
                         Stream <span class="caret"></span>
@@ -131,6 +137,7 @@
                     <button class="btn btn-default" type="button" ng-click="doStop()">Stop</button>
                     <button class="btn btn-primary" type="button" ng-click="doLoad()">Load</button>
                 </span>
+                -->
             </div>
         </div>
 
@@ -394,8 +401,11 @@
             </div>
 
             <!-- STATS TAB CONTENT -->
+
             <div class="col-md-3 tabs-section">
+
                 <div >
+                    <!--
                     <ul class="nav nav-tabs" role="tablist">
                       <li class="active">
                           <a href="#videoStatsTab" role="tab" data-toggle="tab">
@@ -407,6 +417,7 @@
                           </a>
                       </li>
                     </ul>
+                    -->
 
                     <!-- Tab panes -->
                     <div class="tab-content">
@@ -416,15 +427,16 @@
                             <div class="text-success">
                                 <input id="videoBufferCB" type="checkbox" ng-model="chartState.video.buffer.selected" ng-change="enableChartByName('buffer', 'video')" >
                                 <label class="text-primary" for="videoBufferCB"  data-toggle="tooltip" data-placement="top"
-                                       title="The length of the forward buffer, in seconds">Buffer Length : </label> {{videoBufferLength}}
+                                       title="The length of the forward buffer, in seconds">Video Buffer Length : </label> {{videoBufferLength}}
                             </div>
 
                             <div class="text-success">
                                 <input id="videoBitrateCB" type="checkbox" ng-model="chartState.video.bitrate.selected" ng-change="enableChartByName('bitrate', 'video')" >
                                 <label class="text-primary" for="videoBitrateCB"  data-toggle="tooltip" data-placement="top"
-                                       title="The bitrate of the representation being downloaded">Bitrate Downloading :</label> {{videoBitrate}} kbps
+                                       title="The bitrate of the representation being downloaded">Video Bitrate Downloading :</label> {{videoBitrate}} kbps
                             </div>
 
+                            <!--
                             <div class="text-success" >
                                 <input id="videoPendingIndexCB" type="checkbox" ng-model="chartState.video.pendingIndex.selected" ng-change="enableChartByName('pendingIndex', 'video')" >
                                 <label class="text-primary" for="videoPendingIndexCB"  data-toggle="tooltip" data-placement="top"
@@ -460,11 +472,14 @@
                                 <label class="text-primary" for="liveLatencyCB" data-toggle="tooltip" data-placement="top"
                                   title="Difference between live time and current playback position in seconds. This latency estimate does not include the time taken by the encoder to encode the content">Live Latency:</label> {{videoLiveLatency}}
                             </div>
+                            -->
                         </div>
                       </div>
+
                       <div class="tab-pane fade" id="audioStatsTab">
                         <div class="panel-body panel-stats">
                             <!-- AUDIO STATS ITEMS-->
+                            <!--
                             <div class="text-success" >
                                 <input id="audioBufferLengthCB" type="checkbox" ng-model="chartState.audio.buffer.selected" ng-change="enableChartByName('buffer', 'audio')" >
                                 <label class="text-primary" for="audioBufferLengthCB" data-toggle="tooltip" data-placement="top"
@@ -510,6 +525,7 @@
                                 <label class="text-primary" for="liveLatencyCB" data-toggle="tooltip" data-placement="top"
                                   title="Number of seconds of difference between the real live and the playing live">Live Latency:</label> {{audioLiveLatency}}
                             </div>
+                            -->
                         </div>
                       </div>
                     </div>
@@ -535,12 +551,15 @@
       </div>
 
         <!-- CHARTING -->
+
        <div class="chart-panel">
             <div class="chart-controls">
+                <!--
                 <div class="btn-group">
                     <button id="disable-chart-btn" class="btn btn-primary" ng-click="clearChartData()" ng-cloak>Clear</button>
                     <button id="disable-chart-btn" class="btn btn-primary" ng-click="onChartEnableButtonClick()" ng-cloak>{{getChartButtonLabel()}}</button>
                 </div>
+                -->
                 <div id="legend-wrapper" class="legend-row">
                 </div>
             </div>
@@ -558,11 +577,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h3 class="footer-text">Contributors:</h3>
-                    <a ng-repeat="item in contributors" class="footer-text" href="{{item.link}}" target="_blank">
-                        <img ng-show="hasLogo(item)" ng-src="{{item.logo}}" alt="{{item.link}}"/>
-                        <span class="contributor" ng-show="!hasLogo(item)">{{item.name}}</span>
-                    </a>
+                    <h3 class="footer-text">Authors:</h3>
+                    <p>
+                        Laura Zarandieta,
+                        Jose Manuel Valbuena,
+                        Xuan Chen and
+                        Adrián Blázquez
+                    </p>
                 </div>
             </div>
         </div>
