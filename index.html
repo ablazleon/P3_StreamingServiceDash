@@ -70,13 +70,14 @@
         <div class="row title-header">
 
             <div class="branding">
-              <a href="http://dashif.org/" target="_blank"><img class="image" src="app/img/if.png"/></a>
-              <span id="big-title">Reference Client</span>
+              <span id="big-title">Servicio de Streaming</span>
                 <span ng-bind="version"></span>
                 <span id="commit-info"><!-- commit-info --></span>
             </div>
 
+
             <!-- Using iframe to solve pre-flight request issue from GIT-->
+            <!--
             <div class="top-buttons">
                 <iframe id="star-button"
                         src="//ghbtns.com/github-btn.html?user=Dash-Industry-Forum&repo=dash.js&type=watch&count=true&size=large"
@@ -87,6 +88,7 @@
                         height="30" width="150" >
                 </iframe>
             </div>
+            -->
         </div>
 
 
@@ -117,6 +119,7 @@
                         </li>
                     </ul>
                 </div>
+
                 <div id="mobile-streams" class="input-group-btn">
                     <button type="button" class="btn btn-primary" data-toggle="modal" href="#streamModal">
                         Stream <span class="caret"></span>
@@ -131,9 +134,10 @@
             </div>
         </div>
 
-        <!--
+
         <!-- OPTIONS MENU-->
         <div ng-cloak class="row options-wrapper" ng-class="{'options-show':optionsGutter, 'options-hide':!optionsGutter}">
+           <!--
             <div class="options-item">
                 <div class="options-item-title">Playback</div>
                 <div class="options-item-body">
@@ -148,6 +152,7 @@
                             </ul>
                         </div>
                     </label>
+
                     <label class="topcoat-checkbox" data-toggle="tooltip" data-placement="right"
                            title="Enables automatic startup of the media once the media is loaded">
                         <input type="checkbox" ng-model="autoPlaySelected" ng-change="toggleAutoPlay()" ng-checked="autoPlaySelected">
@@ -209,10 +214,11 @@
                         Use Custom ABR Rules
                     </label>
                 </div>
+                -->
             </div>
 
 
-
+            <!--
             <div class="options-item">
                 <div class="options-item-title">DRM Options</div>
                 <div class="options-item-body">
@@ -342,6 +348,8 @@
             </div>
 
         </div>
+            -->
+
 
         <!--VIDEO PLAYER / CONTROLS -->
         <div class="row">
