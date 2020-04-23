@@ -441,17 +441,12 @@
                       <div class="tab-pane fade active in" id="videoStatsTab">
                         <div class="panel-body panel-stats" ng-cloak>
                             <!-- VIDEO STATS ITEMS-->
-                            <div class="text-success">
-                                <input id="videoBufferCB" type="checkbox" ng-model="chartState.video.buffer.selected" ng-change="enableChartByName('buffer', 'video')" >
-                                <label class="text-primary" for="videoBufferCB"  data-toggle="tooltip" data-placement="top"
-                                       title="The length of the forward buffer, in seconds">Video Buffer Length : </label> {{videoBufferLength}}
-                            </div>
-
-                            <div class="text-success">
-                                <input id="videoBitrateCB" type="checkbox" ng-model="chartState.video.bitrate.selected" ng-change="enableChartByName('bitrate', 'video')" >
-                                <label class="text-primary" for="videoBitrateCB"  data-toggle="tooltip" data-placement="top"
-                                       title="The bitrate of the representation being downloaded">Video Bitrate Downloading :</label> {{videoBitrate}} kbps
-                            </div>
+                        </div>
+                          <div class="code">
+                              <p>Video Bitrate: <span id="bitrate"></span> kbps</p>
+                              <p>Video Buffer: <span id="buffer"></span> seconds</p>
+                              <p>Video Representation: <span id="representation"></span></p>
+                          </div>
 
                             <!--
                             <div class="text-success" >
