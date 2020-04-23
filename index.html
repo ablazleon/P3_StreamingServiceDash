@@ -61,8 +61,8 @@
                     var bitrate = repSwitch ? Math.round(dashAdapter.
                     getBandwidthForRepresentation(repSwitch.to,
                         periodIdx) / 1000) : NaN;
-                    document.getElementById('buffer').innerText = bufferLevel + " secs";
-                    document.getElementById('bitrate').innerText = bitrate + " Kbps";
+                    document.getElementById('buffer').innerText = bufferLevel + "";
+                    document.getElementById('bitrate').innerText = bitrate + " ";
                     document.getElementById('representation').innerText = repSwitch.to;
                 }
             }, 500);
