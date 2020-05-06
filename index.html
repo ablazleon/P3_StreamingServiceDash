@@ -29,11 +29,19 @@
 
     <script src="app/lib/dash/dash.all.min.js"></script>
     <script>
+        const protData = {
+            "org.w3.clearkey": {
+                "clearkeys": {
+                    "oW5AK5BW43HzbTSKpiu3SQ": "hyN9IKGfWKdAwFaE5pm0qg"
+                }
+            }
+        };
         var player;
         document.addEventListener("DOMContentLoaded", function() {init();});
         function init()
         {
             player = dashjs.MediaPlayerFactory.create(document.querySelector(".dashjs-player"));
+            player.setProtectionData(protData);
         };
     </script>
 
