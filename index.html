@@ -18,32 +18,23 @@
     <script src="app/lib/dash/dash.all.min.js"></script>
     <!-- App -->
     <script>
-        const protData = {
-            "org.w3.clearkey": {
-                "clearkeys": {
-                    "oW5AK5BW43HzbTSKpiu3SQ": "hyN9IKGfWKdAwFaE5pm0qg"
-                }
-            }
-        };
-        var player;
-        document.addEventListener("DOMContentLoaded", function() {init();});
-        function init()
-        {
-            player = dashjs.MediaPlayerFactory.create(document.querySelector(".dashjs-player"));
-            player.setProtectionData(protData);
-        };
-    </script>
-
-    <script>
         document.addEventListener("DOMContentLoaded", function () {
             init();
         });
         function init(){
+            const protData = {
+                "org.w3.clearkey": {
+                    "clearkeys": {
+                        "oW5AK5BW43HzbTSKpiu3SQ": "hyN9IKGfWKdAwFaE5pm0qg"
+                    }
+                }
+            };
             var video,
                 player,
                 mpd_url = "./output/stream.mpd";
             video = document.querySelector("video");
             player = dashjs.MediaPlayer().create();
+            player.setProtectionData(protData);
             player.initialize(video, mpd_url, true);
             player.on(dashjs.MediaPlayer.events["PLAYBACK_ENDED"], function() {
                 clearInterval(eventPoller);
