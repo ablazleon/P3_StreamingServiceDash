@@ -18,6 +18,96 @@
     <script src="app/lib/dash/dash.all.min.js"></script>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <!-- App -->
+
+</head>
+<body>
+
+    <!-- Mobile Stream Menu-->
+
+    <!-- TITLE BAR -->
+    <div class="container">
+        <div class="row title-header">
+
+            <div class="branding">
+              <span id="big-title">Servicio de Streaming</span>
+                <span id="commit-info"><!-- commit-info --></span>
+                <p> Dash.js + DRM</p>
+            </div>
+
+        </div>
+
+
+        <div class="row">
+
+        <!-- OPTIONS MENU-->
+        <div  class="row options-wrapper" >
+
+        </div>
+
+        <!--VIDEO PLAYER / CONTROLS -->
+        <div class="row">
+            <div class="dash-video-player col-md-9">
+                <div id="videoContainer" class="videoContainer">
+                    <video class="dashjs-player" autoplay controls preload="auto">  </video>
+
+                    <div id="video-caption"></div>
+
+                    <div id="videoController" class="video-controller unselectable" >
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- STATS TAB CONTENT -->
+
+            <div class="col-md-3 tabs-section">
+
+                <div >
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                      <div class="tab-pane fade active in" id="videoStatsTab">
+                        <div class="panel-body panel-stats" >
+                            <!-- VIDEO STATS ITEMS-->
+                        </div>
+                          <div class="code">
+                              <p>Video Bitrate: <span id="bitrate"></span> kbps</p>
+                              <p>Video Buffer: <span id="buffer"></span> seconds</p>
+                              <p>Video Representation: <span id="representation"></span></p>
+                          </div>
+
+                        </div>
+                      </div>
+
+                      <div class="tab-pane fade" id="audioStatsTab">
+                        <div class="panel-body panel-stats">
+
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+      </div>
+
+        <!-- CHARTING -->
+
+       <div class="chart-panel">
+            <div class="chart-controls">
+                <div id="legend-wrapper" class="legend-row">
+                </div>
+            </div>
+            <div id="chart-wrapper" >
+                <div id="chart-inventory" >
+                    <div id="chartContainer1" style="height: 170px; width:100%;"></div>
+                    <div id="chartContainer2" style="height: 170px; width:100%;"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             init();
@@ -115,95 +205,6 @@
             }, 500);
         }
     </script>
-
-</head>
-<body>
-
-    <!-- Mobile Stream Menu-->
-
-    <!-- TITLE BAR -->
-    <div class="container">
-        <div class="row title-header">
-
-            <div class="branding">
-              <span id="big-title">Servicio de Streaming</span>
-                <span id="commit-info"><!-- commit-info --></span>
-                <p> Dash.js + DRM</p>
-            </div>
-
-        </div>
-
-
-        <div class="row">
-
-        <!-- OPTIONS MENU-->
-        <div  class="row options-wrapper" >
-
-        </div>
-
-        <!--VIDEO PLAYER / CONTROLS -->
-        <div class="row">
-            <div class="dash-video-player col-md-9">
-                <div id="videoContainer" class="videoContainer">
-                    <video class="dashjs-player" autoplay controls preload="auto">  </video>
-
-                    <div id="video-caption"></div>
-
-                    <div id="videoController" class="video-controller unselectable" >
-
-                    </div>
-                </div>
-            </div>
-
-            <!-- STATS TAB CONTENT -->
-
-            <div class="col-md-3 tabs-section">
-
-                <div >
-
-                    <!-- Tab panes -->
-                    <div class="tab-content">
-                      <div class="tab-pane fade active in" id="videoStatsTab">
-                        <div class="panel-body panel-stats" >
-                            <!-- VIDEO STATS ITEMS-->
-                        </div>
-                          <div class="code">
-                              <p>Video Bitrate: <span id="bitrate"></span> kbps</p>
-                              <p>Video Buffer: <span id="buffer"></span> seconds</p>
-                              <p>Video Representation: <span id="representation"></span></p>
-                          </div>
-
-                        </div>
-                      </div>
-
-                      <div class="tab-pane fade" id="audioStatsTab">
-                        <div class="panel-body panel-stats">
-
-                        </div>
-                      </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-      </div>
-
-        <!-- CHARTING -->
-
-       <div class="chart-panel">
-            <div class="chart-controls">
-                <div id="legend-wrapper" class="legend-row">
-                </div>
-            </div>
-            <div id="chart-wrapper" >
-                <div id="chart-inventory" >
-                    <div id="chartContainer1" style="height: 170px; width:100%;"></div>
-                    <div id="chartContainer2" style="height: 170px; width:100%;"></div>
-                </div>
-            </div>
-        </div>
-
-    </div>
 
     <!-- FOOTER -->
     <div class="footer-area" >
