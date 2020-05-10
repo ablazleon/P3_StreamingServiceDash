@@ -1,19 +1,14 @@
-# P3_StreamingServiceDash An adaptative streaming player client based in dash.js with video digital right management.
+# P3_StreamingServiceDash An adaptative streaming player client based in dash.js with video digital rights management.
 
-El video es un modo de comunicación muy extendido ahora, tanto para contenido multimedia de ocio (películas, series o videoclips musicales),
-como para contenido educativo. Para permitir el streaming, se suele usar servicios de visualización de streaming como YouTube o Vimeo, o
-para material educativo propio, Udemy o Teachable. Bien, para no depender de estos servicios de terceros para publicar contenido propio 
-(por ejemplo, por la posible desmonetización casi aleatoria sobre los videos de youtube o el coste de las páginas de difusión de contenido 
-educativo), cobra importancia entender cómo visualizar un streaming de video con una aceptable calidad de experiencia.  La librería 
-Dash.js, que implementa el estándar MPEG dash, hace esto posible para visualizar streaming en una interfaz web.
+El vídeo es un modo de comunicación muy extendido para todo tipo de contenido, con la existencia de servicios tan variados como YouTube, Vimeo, Udemy o Teachable. Sin embargo, con el aumento exponencial del uso de Internet por todo el mundo, se hace necesario el desarrollo de nuevas tecnologías que primen la eficiencia ofreciendo al mismo tiempo la mayor calidad posible; esta evolución ha conducido al streaming dinámico adaptativo, o DASH, sistema utilizado por una gran cantidad de servicios de streaming.
 
-El objetivo de esta práctica es prototipar *un servicio de streaming de video*. Arquitecturalmente,
-este servicio se descompone en: un proceso servidor y un proceso cliente. En particular, en este proyecto se
-describe cómo se han cumplido tres requisitos en ambos procesos: en la primera sección, se prototipa una interfaz web
-cliente con la librería dash.js para poder visualizar el contenido en esta como un stream que se adapte a la calidad. 
-En la segunda sección, se discute cómo generar estos videos para este streaming y se visualizan las métricas de calidad 
-de la experiencia del servicio de streaming. En la tercera sección, se describe cómo gestionar los derechos del contenido
-digital con dash.js: es decir, cifrándo lso videos para que sólo se puedan ver por ciertos usuarios.
+Así, el objetivo de esta práctica consiste en el desarrollo de un servicio de streaming de vídeo basado en MPEG-DASH, con una parte de servidor (creada mediante un comando de Python en el puerto 8080) y una parte de cliente, manifestada principalmente en la codificación de un archivo HTML con el reproductor en sí.
+
+Como primera toma de contacto, en la sección 1 se ha programado y probado un ejemplo muy sencillo de reproductor MPEG-DASH, con un ejemplo de vídeo proporcionado por la empresa Envivio. Para ello se ha utilizado en gran parte el código proporcionado en el guión de la práctica, y el proceso de inclusión del vídeo se ha reducido simplemente en indicar la dirección del fichero MPD (Media Presentation Description) del vídeo de Envivio en el código. Los resultados obtenidos de esta prueba son muy satisfactorios, y en ellos también se ha podido observar la naturaleza adaptativa de DASH, ya que se observan cambios de resolución durante la reproducción.
+
+Una vez demostradas las capacidades de MPEG-DASH, en la sección 2 se ha modificado el reproductor MPEG-DASH para reproducir un vídeo de nuestra elección e incluir una serie de métricas textuales en la ventana del navegador. Para ello se ha tomado un vídeo de una duración suficiente (en este caso, se ha elegido un capítulo de la serie Family Guy, de 26 minutos) y con resolución 1280x720 píxeles, se han creado 3 vídeos de diferentes calidades (con x264 y MP4Box) y se ha creado un stream DASH con los 3 vídeos (con los comandos mp4fragment y mp4dash de Bento4). El fichero HTML obtenido es bastante más complejo que en el primer caso, pero el funcionamiento de la reproducción es igual de satisfactorio.
+
+Por último, se han probado las capacidades de encriptado DRM sobre el vídeo ya utilizado. Para ello ha hecho falta utilizar la suite Bento4 para encriptar los ficheros de vídeo originales (con mp4encrypt) y volver a crear el stream DRM (de igual manera que anteriormente), además de realizar ligeras adaptaciones en el fichero HTML. Realizado de manera correcta, el resultado es el mismo que en la sección 2, y solamente se observa que se utiliza DRM por los mensajes mostrados por la consola del navegador. Finalmente, y de manera opcional, se han implementado unas gráficas de evolución de la tasa binaria y de la ocupación del buffer con la librería canvasJS.
 
 
 By Jose Manuel Valbuena, Xuan Chen, Laura Zarandieta and Adrián Blázquez
