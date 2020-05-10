@@ -21,6 +21,47 @@
         document.addEventListener("DOMContentLoaded", function () {
             init();
         });
+
+        // Charts
+        var dp1 = []; // dataPoints
+        var dp2 = []; // dataPoints
+
+        var chart1 = new CanvasJS.Chart("chartContainer1", {
+            title :{
+                text: "Video Buffer Length in s"
+            },
+            axisY: {
+                includeZero: false,
+                title: "Buffer (s)"
+            },
+            data: [{
+                type: "line",
+                title: "Tiempo (s)",
+                dataPoints: dp1
+            }]
+        });
+        var chart2 = new CanvasJS.Chart("chartContainer2", {
+            title :{
+                text: "Bitrate"
+            },
+            axisY: {
+                includeZero: false,
+                title: "Bitrate (kbps)"
+            },
+            data: [{
+                type: "line",
+                title: "Tiempo (s)",
+                dataPoints: dp2
+            }]
+        });
+
+        var xVal = 0;
+        var yVal = 0;
+
+        var d = new Date();
+        var inicial = d.getTime();
+
+
         function init(){
             const protData = {
                 "org.w3.clearkey": {
@@ -50,6 +91,22 @@
                     var bitrate = repSwitch ? Math.round(dashAdapter.
                     getBandwidthForRepresentation(repSwitch.to,
                         periodIdx) / 1000) : NaN;
+
+                    d = new Date();
+                    xVal = d.getTime() - inicial;
+                    dp1.push({
+                        x: xVal,
+                        y: bufferLevel
+                    });
+
+                    dp2.push({
+                        x: xVal,
+                        y: bitrate
+                    });
+
+                    chart1.render();
+                    chart2.render();
+
                     document.getElementById('buffer').innerText = bufferLevel + "";
                     document.getElementById('bitrate').innerText = bitrate + " ";
                     document.getElementById('representation').innerText = repSwitch.to;
